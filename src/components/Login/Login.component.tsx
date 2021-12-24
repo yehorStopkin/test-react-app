@@ -1,7 +1,23 @@
+import './Login.component.css';
+
 function LoginComponent() {
     return (
-        <div>
-            LoginComponent
+        <div className="login">
+            <div>
+                Добро пожаловать
+            </div>
+
+            <div>
+                Ввод имени
+            </div>
+
+            <div>
+                Ввод пароля
+            </div>
+
+            <div>
+                Кнопка "войти"
+            </div>
         </div>
     )
 }
