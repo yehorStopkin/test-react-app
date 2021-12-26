@@ -31,27 +31,28 @@
     margin-left: 20px;
 }
 
-.top-bar__cart {
+.top-bar__cart,
+.top-bar__login,
+.top-bar__logout,
+.top-bar__personal-cabinet {
+    width: 30px;
+    height: 30px;
     padding: 10px;
+
+    text-align: center;
+    vertical-align: middle;
 }
 
-.top-bar__cart .fa {
+.top-bar__cart .fa,
+.top-bar__login .fa,
+.top-bar__logout .fa,
+.top-bar__personal-cabinet .fa {
     color: rgba(57, 108, 247, 0.733);
     font-size: 30px;
 }
 
 .top-bar__cart:hover .fa {
     color: rgb(57, 108, 247);
-}
-
-.top-bar__button {
-    display: flex;
-
-    background-color: rgba(140, 220, 240, 0.657);
-
-    border: 1px solid black;
-    padding: 10px 15px;
-    border-radius: 5px;
 }
 
 .top-bar__button:hover {
