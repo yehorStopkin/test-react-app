@@ -1,22 +1,25 @@
+import { IBaseProductDescription } from '../types';
 import './ProductDescription.component.css';
 
-function ProductDescriptionComponent() {
+function ProductDescriptionComponent(props: any) {
+    const productDescription: IBaseProductDescription = props.baseProductDescription;
+
     return (
         <div className="product-description">
             <div>
-                Название
+                {productDescription.title}
             </div>
             
             <div>
-                Код
+                {productDescription.sku}
             </div>
 
             <div>
-                Описание
+                {productDescription.description}
             </div>
 
             <div>
-                Остатки
+                {productDescription.onHand}
             </div>
         </div>
     )
