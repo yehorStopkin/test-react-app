@@ -4,8 +4,14 @@ export interface IProduct {
     title: string; // Название товара
     description: string; // Описание товара
     onHand: number; // Количество товара на остатках
+    price: IPrice;
 
     characteristicGroups: Array<ICharacteristicGroup>; // Массив групп характеристик
+}
+
+export interface IPrice {
+    oldPrice: number;
+    currentPrice: number;
 }
 
 export interface ICharacteristicGroup {
@@ -26,6 +32,10 @@ export function getProduct(): IProduct {
         title: "Смартфон Samsung Galaxy A12 3/32Gb Black (SM-A127FZKUSEK)",
         description: "Неплохой телефончик для бла-бла-бла",
         onHand: 3,
+        price: {
+            oldPrice: 3999,
+            currentPrice: 3599
+        },
         characteristicGroups: [{
             title: "Экран",
             characteristics: [{
