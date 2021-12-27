@@ -1,3 +1,23 @@
-.product {
-    border: 1px solid rgb(173, 118, 78);
+.product :not(.product-buy, .product-specification){
+    border: 4px solid yellowgreen;
+    display: inline-flex;
+    justify-content: center;
+    margin: auto;
+    top: 0;
+    left: 0;
 }
+.product-buy, .product-specification {
+    border: 2px solid red;
+    width: 30%;
+}
+.product-description {
+    top: 0;
+    right: 30%;
+}
+
+.product-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }

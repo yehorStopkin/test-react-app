@@ -6,19 +6,27 @@ function ProductDescriptionComponent(props: any) {
 
     return (
         <div className="product-description">
-            <div>
+            <div className="product-title">
                 {productDescription.title}
             </div>
             
-            <div>
+            <div className="product-old-price">
+                old price: {productDescription.price.oldPrice}
+            </div>
+
+            <div className="product-current-price">
+                current price: {productDescription.price.currentPrice}
+            </div>
+
+            <div className="product-sku">
                 {productDescription.sku}
             </div>
 
-            <div>
+            <div className="product-description-description">
                 {productDescription.description}
             </div>
 
-            <div>
+            <div className="product-on-hand">
                 {productDescription.onHand}
             </div>
         </div>

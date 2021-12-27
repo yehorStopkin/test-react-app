@@ -1,3 +1,13 @@
 .product-description {
-    border: 1px solid rgb(55, 56, 148);
+    border: 1px solid red;
+    display: inline-block;
+}
+
+.product-title,
+.product-old-price,
+.product-current-price,
+.product-sku,
+.product-description-description,
+.product-on-hand {
+    background-color: lightgray;
 }

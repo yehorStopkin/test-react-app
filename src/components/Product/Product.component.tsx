@@ -6,7 +6,6 @@ import { getProduct } from '../../types';
 import { IBaseProductDescription } from './types';
 
 
-
 function ProductComponent() {
     const product = getProduct();
 
@@ -14,22 +13,25 @@ function ProductComponent() {
         sku: product.sku,
         title: product.title,
         description: product.description,
-        onHand: product.onHand
+        onHand: product.onHand,
+        price: product.price,
     }
+
+    const characteristicGroups = product.characteristicGroups;
 
     return (
         <div className="product">
-            <div>
+            <div className="product-img">
                 <img src={product.images[0]} />
             </div>
 
-            <ProductDescriptionComponent baseProductDescription={baseProductDescripton} />
+            <ProductDescriptionComponent baseProductDescription={baseProductDescripton} className="product-description"/>
 
-            <div>
+            <div className="product-buy"> 
                 Кнопка "Купить"
             </div>
 
-            <SpecificationComponent />
+            <SpecificationComponent characteristicGroups={characteristicGroups} className="product-specification"/>
         </div>
     )
 }

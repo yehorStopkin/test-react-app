@@ -1,9 +1,14 @@
+import { ICharacteristicGroup } from '../../../types';
 import './Specification.component.css';
 
-function SpecificationComponent() {
+function SpecificationComponent(props: any) {
+    const characteristicGroups: Array<ICharacteristicGroup> = props.characteristicGroups;
+
     return (
-        <div className="specification">
-            Характеристики
+        <div className="product-specification">
+            <div>
+                {characteristicGroups[0].title}
+            </div>
         </div>
     )
 }

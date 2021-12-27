@@ -5,6 +5,7 @@ export interface IProduct {
     description: string; // Описание товара
     onHand: number; // Количество товара на остатках
     price: IPrice;
+    specifications: string;
 
     characteristicGroups: Array<ICharacteristicGroup>; // Массив групп характеристик
 }
@@ -12,7 +13,7 @@ export interface IProduct {
 export interface IPrice {
     oldPrice: number;
     currentPrice: number;
-}
+} 
 
 export interface ICharacteristicGroup {
     title: string; // Название группы характеристик
@@ -34,8 +35,11 @@ export function getProduct(): IProduct {
         onHand: 3,
         price: {
             oldPrice: 3999,
-            currentPrice: 3599
+            currentPrice: 3599,
         },
+
+        specifications: "some data",
+        
         characteristicGroups: [{
             title: "Экран",
             characteristics: [{
