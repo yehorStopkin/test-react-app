@@ -1,7 +1,7 @@
 import './Product.component.css';
 
 import ProductDescriptionComponent from './Description/ProductDescription.component';
-import SpecificationComponent from './Specification/Specification.component';
+import SpecificationGroupListComponent from './SpecificationGroupList/SpecificationGroupList.component';
 import { getProduct } from '../../types';
 import { IBaseProductDescription } from './types';
 
@@ -14,8 +14,11 @@ function ProductComponent() {
         sku: product.sku,
         title: product.title,
         description: product.description,
-        onHand: product.onHand
-    }
+        onHand: product.onHand,
+        price: product.price
+    };
+
+    const characteristicGroups = product.characteristicGroups;
 
     return (
         <div className="product">
@@ -29,7 +32,7 @@ function ProductComponent() {
                 Кнопка "Купить"
             </div>
 
-            <SpecificationComponent />
+            <SpecificationGroupListComponent characteristicGroups={characteristicGroups} />
         </div>
     )
 }
