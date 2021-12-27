@@ -6,7 +6,7 @@ export interface IProduct {
     onHand: number; // Количество товара на остатках
     price: IPrice;
 
-    characteristicGroups: Array<ICharacteristicGroup>; // Массив групп характеристик
+    specificationGroups: Array<ISpecificationGroup>; // Массив групп характеристик
 }
 
 export interface IPrice {
@@ -14,12 +14,12 @@ export interface IPrice {
     currentPrice: number;
 }
 
-export interface ICharacteristicGroup {
+export interface ISpecificationGroup {
     title: string; // Название группы характеристик
-    characteristics: Array<ICharacteristic>; // Массив характеристик в этой группе
+    specifications: Array<ISpecification>; // Массив характеристик в этой группе
 }
 
-export interface ICharacteristic {
+export interface ISpecification {
     title: string; // Название характеристики
     values: Array<string>; // Массив значений характеристик
     icon?: string; // Пока хз
@@ -36,9 +36,9 @@ export function getProduct(): IProduct {
             oldPrice: 3999,
             currentPrice: 3599
         },
-        characteristicGroups: [{
+        specificationGroups: [{
             title: "Экран",
-            characteristics: [{
+            specifications: [{
                 title: "Диагональ дисплея",
                 values: ["6,5''"]
             }, {
@@ -53,7 +53,7 @@ export function getProduct(): IProduct {
             }]
         }, {
             title: "Связь",
-            characteristics: [{
+            specifications: [{
                 title: "Стандарты связи",
                 values: ["2G GSM", "2G CDMA", "3G UMTS", "3G CDMA"]
             }, {
@@ -65,7 +65,7 @@ export function getProduct(): IProduct {
             }, ]
         }, {
             title: "ОС",
-            characteristics: [{
+            specifications: [{
                 title: "Операционная система",
                 values: ["Android 10.0"]
             }]

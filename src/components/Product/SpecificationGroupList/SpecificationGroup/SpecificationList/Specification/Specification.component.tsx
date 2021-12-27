@@ -1,8 +1,8 @@
-import { ICharacteristic } from "../../../../../../types";
+import { ISpecification } from "../../../../../../types";
 import "./Specification.component.css";
 
 function SpecificationComponent(props: any) {
-    const specification: ICharacteristic = props.specification;
+    const specification: ISpecification = props.specification;
 
     const values = specification.values.map((value: string) => {
         return (

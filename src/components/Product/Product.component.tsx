@@ -18,7 +18,7 @@ function ProductComponent() {
         price: product.price
     };
 
-    const characteristicGroups = product.characteristicGroups;
+    const specificationGroups = product.specificationGroups;
 
     return (
         <div className="product">
@@ -32,7 +32,7 @@ function ProductComponent() {
                 Кнопка "Купить"
             </div>
 
-            <SpecificationGroupListComponent characteristicGroups={characteristicGroups} />
+            <SpecificationGroupListComponent specificationGroups={specificationGroups} />
         </div>
     )
 }

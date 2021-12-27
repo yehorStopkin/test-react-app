@@ -1,14 +1,14 @@
 import './SpecificationGroupList.component.css';
 
 import SpecificationGroupComponent from './SpecificationGroup/SpecificationGroup.component';
-import { ICharacteristicGroup } from '../../../types';
+import { ISpecificationGroup } from '../../../types';
 
 function SpecificationGroupListComponent(props: any) {
-    const characteristicGroups: Array<ICharacteristicGroup> = props.characteristicGroups;
+    const specificationGroups: Array<ISpecificationGroup> = props.specificationGroups;
 
-    const specificationGroupComponents = characteristicGroups.map((characteristicGroup: ICharacteristicGroup) => {
+    const specificationGroupComponents = specificationGroups.map((specificationGroup: ISpecificationGroup) => {
         return (
-            <SpecificationGroupComponent characteristicGroup={characteristicGroup} key={characteristicGroup.title} />
+            <SpecificationGroupComponent specificationGroup={specificationGroup} key={specificationGroup.title} />
         )
     });
 

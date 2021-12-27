@@ -1,19 +1,19 @@
-import { ICharacteristicGroup } from "../../../../types";
+import { ISpecificationGroup } from "../../../../types";
 import "./SpecificationGroup.component.css";
 
 import SpecificationListComponent from "./SpecificationList/SpecificationList.component";
 
 function SpecificationGroupComponent(props: any) {
-    const characteristicGroup: ICharacteristicGroup = props.characteristicGroup;
+    const specificationGroup: ISpecificationGroup = props.specificationGroup;
 
     return (
         <div className="specification-group">
             <div>
-                {characteristicGroup.title}
+                {specificationGroup.title}
             </div>
 
             <div>
-                <SpecificationListComponent specificationList={characteristicGroup.characteristics} />
+                <SpecificationListComponent specificationList={specificationGroup.specifications} />
             </div>
         </div>
     )
