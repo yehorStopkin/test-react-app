@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import LayoutComponent from './components/Layout/Layout.component';
 import LoginComponent from './components/Login/Login.component';
@@ -7,11 +7,19 @@ import ProductComponent from './components/Product/Product.component';
 import ShoppingCartComponent from './components/ShoppingCart/ShoppingCart.component';
 import PersonalCabinetComponent from './components/PersonalCabinet/PersonalCabinet.component';
 import NotFoundComponent from './components/NotFound/NotFound.component';
+import { ICategory } from './types';
+import { getCategories } from './types/mocks/categoryMock';
 
 function App() {
     const [currentPage, setCurrentPage] = React.useState<PAGE | null>(PAGE.CATEGORY);
+    const [categories, setCategories] = React.useState<Array<ICategory>>([]);
 
-    let currentComponent = getCurrentPage(currentPage);
+    useEffect(() => {
+        const categories = getCategories();
+        setCategories(categories);
+    }, []);
+
+    let currentComponent = getCurrentPage(currentPage, categories);
 
     function clickHandler(page: PAGE | null): any {
         setCurrentPage(() => page);
@@ -46,7 +54,7 @@ enum PAGE {
 export default App;
 
 
-function getCurrentPage(page: PAGE | null): any {
+function getCurrentPage(page: PAGE | null, categories: Array<ICategory>): any {
     let currentPage = null;
 
     switch (page) {
@@ -57,7 +65,7 @@ function getCurrentPage(page: PAGE | null): any {
         case PAGE.CATEGORY: {
             currentPage = (
                 <LayoutComponent>
-                    <CategoryComponent />
+                    <CategoryComponent categories={categories || []} />
                 </LayoutComponent>
             );
             break;

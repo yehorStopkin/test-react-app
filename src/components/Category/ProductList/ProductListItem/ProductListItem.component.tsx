@@ -1,14 +1,17 @@
+import { IProduct } from '../../../../types';
 import './ProductListItem.component.css';
 
-function ProductListItemComponent() {
+function ProductListItemComponent(props: any) {
+    const product: IProduct = props.product;
+
     return (
         <div className="product-list-item"> 
             <div>
-                Название товара
+                {product.title}
             </div>
 
             <div>
-                Код
+                Код товара: {product.sku}
             </div>
 
             <div>
@@ -16,15 +19,20 @@ function ProductListItemComponent() {
             </div>
 
             <div>
-                Описание
+                {product.description}
             </div>
 
             <div>
-                Цена
+                Текущая цена: {product.price.currentPrice} 
             </div>
 
             <div>
-                Остатки
+                Прошлая цена: {product.price.oldPrice} 
+            </div>
+
+
+            <div>
+                Доступно: {product.onHand}
             </div>
 
             <div>

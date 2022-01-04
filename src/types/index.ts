@@ -1,3 +1,5 @@
+import { CATEGORY } from "./mocks/productMock";
+
 export interface IProduct {
     sku: string; // id
     images: Array<string>; // Массив ссылок на картинки
@@ -23,6 +25,12 @@ export interface ISpecification {
     title: string; // Название характеристики
     values: Array<string>; // Массив значений характеристик
     icon?: string; // Пока хз
+}
+
+export interface ICategory {
+    title: string;
+    id: CATEGORY,
+    products: Array<IProduct>;
 }
 
 export function getProduct(): IProduct {
