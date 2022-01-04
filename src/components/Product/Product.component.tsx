@@ -7,8 +7,8 @@ import { IBaseProductDescription } from './types';
 
 
 
-function ProductComponent() {
-    const product = getProduct();
+function ProductComponent(props: any) {
+    const product = props.product;
 
     const baseProductDescripton: IBaseProductDescription = {
         sku: product.sku,

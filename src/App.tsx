@@ -7,7 +7,7 @@ import ProductComponent from './components/Product/Product.component';
 import ShoppingCartComponent from './components/ShoppingCart/ShoppingCart.component';
 import PersonalCabinetComponent from './components/PersonalCabinet/PersonalCabinet.component';
 import NotFoundComponent from './components/NotFound/NotFound.component';
-import { ICategory } from './types';
+import { ICategory, IProduct } from './types';
 import { getCategories } from './types/mocks/categoryMock';
 
 function App() {
@@ -19,7 +19,9 @@ function App() {
         setCategories(categories);
     }, []);
 
-    let currentComponent = getCurrentPage(currentPage, categories);
+    const product = getRandomProduct(categories || []);
+
+    let currentComponent = getCurrentPage(currentPage, categories, product);
 
     function clickHandler(page: PAGE | null): any {
         setCurrentPage(() => page);
@@ -54,7 +56,7 @@ enum PAGE {
 export default App;
 
 
-function getCurrentPage(page: PAGE | null, categories: Array<ICategory>): any {
+function getCurrentPage(page: PAGE | null, categories: Array<ICategory>, product: IProduct): any {
     let currentPage = null;
 
     switch (page) {
@@ -73,7 +75,7 @@ function getCurrentPage(page: PAGE | null, categories: Array<ICategory>): any {
         case PAGE.PRODUCT: {
             currentPage = (
                 <LayoutComponent>
-                    <ProductComponent />
+                    <ProductComponent product={product} />
                 </LayoutComponent>
             );
             break;
@@ -100,4 +102,21 @@ function getCurrentPage(page: PAGE | null, categories: Array<ICategory>): any {
     }
 
     return currentPage;
+}
+
+function getRandomProduct(categories: Array<ICategory>): IProduct {
+    let products: Array<IProduct> = [];
+
+    for (const category of categories) {
+        const categoryProducts = category.products;
+
+        products = [...products, ...categoryProducts];
+    }
+
+    const numberOfProducts = products.length;
+
+    const index = Math.trunc(Math.random() * numberOfProducts);
+
+
+    return products[index];
 }
