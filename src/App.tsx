@@ -9,7 +9,7 @@ import PersonalCabinetComponent from './components/PersonalCabinet/PersonalCabin
 import NotFoundComponent from './components/NotFound/NotFound.component';
 
 function App() {
-    const [currentPage, setCurrentPage] = React.useState<PAGE | null>(PAGE.CATEGORY);
+    const [currentPage, setCurrentPage] = React.useState<PAGE | null>(PAGE.PRODUCT);
 
     let currentComponent = getCurrentPage(currentPage);
 

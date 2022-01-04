@@ -20,19 +20,30 @@ function ProductComponent() {
 
     const specificationGroups = product.specificationGroups;
 
+    function addToCart() {
+        alert("Added + 1");
+    }
+
+    function deleteFromCart() {
+        alert("Deleted - 1");
+    }
+
     return (
         <div className="product">
-            <div>
-                <img src={product.images[0]} />
+            <div className="product__top-wrapper">
+                <div className="product__img product__left">
+                    <img src={product.images[0]} />
+                </div>
+
+                <div className="product__right">
+                    <ProductDescriptionComponent baseProductDescription={baseProductDescripton} className="product__description"/>
+
+                    { product.onHand === 0 ? null : (<button className="product__buy-button-bt" onClick={() => addToCart()}> Buy </button>)}
+                    
+                </div>
             </div>
 
-            <ProductDescriptionComponent baseProductDescription={baseProductDescripton} />
-
-            <div>
-                Кнопка "Купить"
-            </div>
-
-            <SpecificationGroupListComponent specificationGroups={specificationGroups} />
+            <SpecificationGroupListComponent specificationGroups={specificationGroups} className="product__specification"/>
         </div>
     )
 }
