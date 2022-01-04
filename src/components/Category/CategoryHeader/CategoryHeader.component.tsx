@@ -1,11 +1,18 @@
+import { ICategory } from '../../../types';
 import './CategoryHeader.component.css';
 
-function CategoryHeaderComponent() {
+function CategoryHeaderComponent(props: any) {
+    const category = props.category as ICategory;
+
+    const title = category.title;
+
+    const numberOfProducnts = category.products.length;
+
     return (
         <div className="category-header">
-            <div>Название категории</div>
+            <div>{title}</div>
 
-            <div>Количество товаров в категории</div>
+            <div>В данной категории найдено {numberOfProducnts} товаров</div>
         </div>
     )
 }
